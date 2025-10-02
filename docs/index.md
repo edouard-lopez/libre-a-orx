@@ -1,5 +1,5 @@
-<div style="display: flex; align-items: flex-start; gap: 2em;">
-  <div style="flex: 1;">
+<div class="hero-section">
+  <div class="content">
     <h1>🎈 LàO : Libre à Orx</h1>
     <dl>
       <dt>Où ?</dt><dd> <a href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&layers=N">Place de l'Église, Orx, Landes</a></dd>
@@ -12,8 +12,8 @@
       <dt></dt><dd><a href="./code-de-conduite.md">Code de conduite</a></dd>
     </dl>
   </div>
-  <div style="flex: 0 0 auto;">
-    <img src="./affiche-event.svg" alt="Affiche Libre à Orx" style="max-width: 768px; height: auto;" />
+  <div class="image-container">
+    <img src="./affiche-event.svg" alt="Affiche Libre à Orx" />
   </div>
 </div>
 
@@ -64,6 +64,47 @@ Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.or
 Manu
 
 <style>
+  /** Hero section responsive layout **/
+  .hero-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 2em;
+    max-width: 100%;
+  }
+  
+  .content {
+    flex: 1;
+    min-width: 0; /* Allow content to shrink */
+  }
+  
+  .image-container {
+    flex: 0 0 auto;
+  }
+  
+  .image-container img {
+    max-width: 50vw; /* Fit within viewport on desktop */
+    height: auto;
+    display: block;
+  }
+  
+  /* Mobile layout - image below content */
+  @media (max-width: 768px) {
+    .hero-section {
+      flex-direction: column;
+      gap: 1.5em;
+    }
+
+    .image-container {
+      order: 2; /* Move image below content */
+      align-self: center;
+    }
+
+    .image-container img {
+      max-width: 90vw; /* Use more viewport width on mobile */
+      width: 100%;
+    }
+  }
+
   /** Style for definition list to have terms and definitions on separate lines **/
   dl {
     display: grid;  
