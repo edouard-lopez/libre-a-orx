@@ -1,57 +1,3 @@
-<style>
-  /** Style for definition list to have terms and definitions on separate lines **/
-  dl {
-    display: grid;  
-    grid-template-columns: max-content auto;
-    gap: 0.5em 1em;
-  }
-  dt {
-    font-weight: bold;  
-    grid-column: 1;
-    text-align: right;
-  }
-  dd {
-    grid-column: 2;
-  }
-  dd, dt {
-    padding: 0.2em 0;
-    margin: 0 0.2em;
-  }
-/* Responsive adjustments */
-  @media (max-width: 600px) {
-    dl {
-      grid-template-columns: auto;
-    }
-    dt {
-      text-align: left;
-      grid-column: 1;
-    }
-    dd {
-      grid-column: 1;
-    }
-  }
-  /* set a minimal width for the first column of the table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 8px;
-    text-align: left;
-  }
-  th:first-child, td:first-child {
-    min-width: 120px;
-    font-weight: bold;
-  }
-  /* alternate background color for rows */
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  tr:nth-child(odd) {
-    background-color: #ffffff;
-  }
-
-</style>
 <div style="display: flex; align-items: flex-start; gap: 2em;">
   <div style="flex: 1;">
     <h1>🎈 LàO : Libre à Orx</h1>
@@ -110,3 +56,64 @@ Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.or
 > Communs géonumériques et gouvernance territoriale. La rencontre entre le Département des Landes, OpenStreetMap et Panoramax.”
 
 [Rémi Labarthe](https://piaille.fr/@Remi_Labarthe@mastodon.social)
+
+### Exploration de microcontrôleurs avec ESP32
+
+> Exploration de microcontrôleurs avec ESP32 avec PlatformIO et Visual Studio Code.
+
+Manu
+
+<style>
+  /** Style for definition list to have terms and definitions on separate lines **/
+  dl {
+    display: grid;  
+    grid-template-columns: max-content auto;
+    gap: 0.5em 1em;
+  }
+  dt {
+    font-weight: bold;  
+    grid-column: 1;
+    text-align: right;
+  }
+  dd {
+    grid-column: 2;
+  }
+  dd, dt {
+    padding: 0.2em 0;
+    margin: 0 0.2em;
+  }
+/* Responsive adjustments */
+  @media (max-width: 600px) {
+    dl {
+      grid-template-columns: auto;
+    }
+    dt {
+      text-align: left;
+      grid-column: 1;
+    }
+    dd {
+      grid-column: 1;
+    }
+  }
+  /* set a minimal width for the first column of the table */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  th:first-child, td:first-child {
+    min-width: 120px;
+    font-weight: bold;
+  }
+  /* alternate background color for rows */
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:nth-child(odd) {
+    background-color: #ffffff;
+  }
+
+</style>
