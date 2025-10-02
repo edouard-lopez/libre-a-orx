@@ -1,19 +1,19 @@
-<div class="hero-section">
-  <div class="content">
+<div>
+  <div>
     <h1>🎈 LàO : Libre à Orx</h1>
-    <dl>
-      <dt>Où ?</dt><dd> <a href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&layers=N">Place de l'Église, Orx, Landes</a></dd>
-      <dt>Quand ?</dt><dd> Samedi 18 oct. 10h-17h</dd>
-      <dt>Mail :</dt><dd> <a href="mailto:libre.a.orx.edgy933@aleeas.com">libre.a.orx.edgy933@aleeas.com</a></dd>
-      <dt>Réseau Sociaux</dt><dd>: <a href="https://piaille.fr/@edouard_lopez/">Mastodon</a></dd>
-      <dt>Tarif :</dt><dd> Libre</dd>
-      <dt>Programme :</dt><dd> <a href="#programme">Voir ci-dessous ⬇</a></dd>
-      <dt>Repas :</dt><dd> Auberge Espagnole (chacun apporte un plat à partager)</dd>
-      <dt></dt><dd><a href="./code-de-conduite.md">Code de conduite</a></dd>
-    </dl>
+    <ul>
+      <li><b>Où ?</b> <a href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&layers=N">Place de l'Église, Orx, Landes</a></li>
+      <li><b>Quand ?</b> Samedi 18 oct. 10h-17h</li>
+      <li><b>Mail :</b> <a href="mailto:libre.a.orx.edgy933@aleeas.com">libre.a.orx.edgy933@aleeas.com</a></li>
+      <li><b>Réseau Sociaux :</b> <a href="https://piaille.fr/@edouard_lopez/">Mastodon</a></li>
+      <li><b>Tarif :</b> Libre</li>
+      <li><b>Programme :</b> <a href="#programme">Voir ci-dessous ⬇</a></li>
+      <li><b>Repas :</b> Auberge Espagnole (chacun apporte un plat à partager)</li>
+      <li><b>Code de conduite :</b> <a href="./code-de-conduite.md">Code de conduite</a></li>
+    </ul>
   </div>
-  <div class="image-container">
-    <img src="./affiche-event.svg" alt="Affiche Libre à Orx" />
+  <div style="@media (max-width: 600px) { width: 100%; }">
+    <img src="affiche-event.svg" alt="Affiche Libre à Orx" />
   </div>
 </div>
 
@@ -36,7 +36,7 @@
 | 15h30-16h00 | Docu-Blabla                                       |
 | 16h00-16h30 | Docu-Blabla                                       |
 | 16h30-17h00 |
-| 17h00-17h30 | Rangement  🧹 🧼 🧹                                  |
+| 17h00-17h30 | Rangement 🧹 🧼 🧹                                   |
 | 17h30-18h00 |
 
 ### Install Party Linux
@@ -62,99 +62,3 @@ Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.or
 > Exploration de microcontrôleurs avec ESP32 avec PlatformIO et Visual Studio Code.
 
 Manu
-
-<style>
-  /** Hero section responsive layout **/
-  .hero-section {
-    display: flex;
-    align-items: flex-start;
-    gap: 2em;
-    max-width: 100%;
-  }
-  
-  .content {
-    flex: 1;
-    min-width: 0; /* Allow content to shrink */
-  }
-  
-  .image-container {
-    flex: 0 0 auto;
-  }
-  
-  .image-container img {
-    max-width: 50vw; /* Fit within viewport on desktop */
-    height: auto;
-    display: block;
-  }
-  
-  /* Mobile layout - image below content */
-  @media (max-width: 768px) {
-    .hero-section {
-      flex-direction: column;
-      gap: 1.5em;
-    }
-
-    .image-container {
-      order: 2; /* Move image below content */
-      align-self: center;
-    }
-
-    .image-container img {
-      max-width: 90vw; /* Use more viewport width on mobile */
-      width: 100%;
-    }
-  }
-
-  /** Style for definition list to have terms and definitions on separate lines **/
-  dl {
-    display: grid;  
-    grid-template-columns: max-content auto;
-    gap: 0.5em 1em;
-  }
-  dt {
-    font-weight: bold;  
-    grid-column: 1;
-    text-align: right;
-  }
-  dd {
-    grid-column: 2;
-  }
-  dd, dt {
-    padding: 0.2em 0;
-    margin: 0 0.2em;
-  }
-/* Responsive adjustments */
-  @media (max-width: 600px) {
-    dl {
-      grid-template-columns: auto;
-    }
-    dt {
-      text-align: left;
-      grid-column: 1;
-    }
-    dd {
-      grid-column: 1;
-    }
-  }
-  /* set a minimal width for the first column of the table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    padding: 8px;
-    text-align: left;
-  }
-  th:first-child, td:first-child {
-    min-width: 120px;
-    font-weight: bold;
-  }
-  /* alternate background color for rows */
-  tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  tr:nth-child(odd) {
-    background-color: #ffffff;
-  }
-
-</style>
