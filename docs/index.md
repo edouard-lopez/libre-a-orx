@@ -61,4 +61,22 @@ Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.or
 
 > Exploration de microcontrôleurs avec ESP32 avec PlatformIO et Visual Studio Code.
 
-Manu
+Manu - Ingénieur C++/Java
+
+### Impression 3D et découpe laser
+
+> Creation de porte clés personnalisés.
+
+Audrey Perrone - [Trame de soi](https://www.tramedesoi.fr/)
+
+### Panoramax des sentiers communaux
+
+> Captation avec camera GoPro 360 des sentiers pédestres et versement sur la plateforme [panoramax](panoramax.openstreetmap.fr)
+
+Groupe OSM Mapadour
+
+### Cartographie des nichoirs
+
+> Cartopartie sur le thème des nichoirs, installés par lassociation « Les bons p'tits diables ». Première phase de repérage sur le terrain avec carte papier, la deuxième phase montrera comment rajouter les nichoirs sur OpenStreetMap.
+
+Laura Mouchet - Géomaticienne Ville de Bayonne
