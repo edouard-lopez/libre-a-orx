@@ -95,7 +95,7 @@ Manu - Ingénieur C++/Java
 
 ### Impression 3D et découpe laser
 
-> Creation de porte clés personnalisés.
+> Creation de porte clés personnalisés et autres objets en impression 3D et découpe laser.
 
 Audrey Perrone - [Trame de soi](https://www.tramedesoi.fr/)
 
@@ -110,3 +110,14 @@ Groupe OSM Mapadour
 > Cartopartie sur le thème des nichoirs, installés par lassociation « Les bons p'tits diables ». Première phase de repérage sur le terrain avec carte papier, la deuxième phase montrera comment rajouter les nichoirs sur OpenStreetMap.
 
 Laura Mouchet - Géomaticienne Ville de Bayonne
+
+## Remerciements
+
+L'organisation de cet événement est possible grâce :
+
+* au financement de l'[association OpenStreetMap France][osm-fr] ;
+* au soutient de la [mairie d'Orx][orx] ;
+* à l'investissement de nombreux bénévoles.
+
+[osm-fr]: https://www.openstreetmap.fr/association/
+[orx]: https://mairie-orx.fr/
