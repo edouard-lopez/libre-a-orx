@@ -51,9 +51,39 @@ Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.or
 
 Association [Sorgin Informatique Libre](https://www.sorgin-informatique-libre.org/)
 
+### Panoramax : prise en main
+
+> Panoramax : prise en main
+
+Édouard
+
+### Inkscape : initiation au dessin vectoriel
+
+> Initiation au dessin vectoriel avec Inkscape
+
+Yug
+
+### Utiliser l'IA : discussion, image, et code
+
+> Utiliser l'IA : discussion, image, et code
+
+Yug
+
+### Libre et droits humains
+
+> Libre et droits humains
+
+Yug
+
+### Le libre : du besoin au projet
+
+> Le libre : du besoin au projet. LinguaLibre, ProbeMeteo
+
+Yug
+
 ### Communs géonumériques et gouvernance territoriale
 
-> Communs géonumériques et gouvernance territoriale. La rencontre entre le Département des Landes, OpenStreetMap et Panoramax.”
+> Communs géonumériques et gouvernance territoriale. La rencontre entre le Département des Landes, OpenStreetMap et Panoramax.
 
 [Rémi Labarthe](https://piaille.fr/@Remi_Labarthe@mastodon.social)
 
