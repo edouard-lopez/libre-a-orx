@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+    <title>libre-a-orx | LàO : Libre à Orx, logiciels et cultures libres</title>
+    <meta name="generator" content="Jekyll v3.10.0" />
+    <meta property="og:title" content="libre-a-orx" />
+    <meta property="og:locale" content="en_US" />
+    <meta
+      name="description"
+      content="LàO : Libre à Orx, logiciels et cultures libres"
+    />
+    <meta
+      property="og:description"
+      content="LàO : Libre à Orx, logiciels et cultures libres"
+    />
+    <link rel="canonical" href="https://edouard-lopez.github.io/libre-a-orx/" />
+    <meta
+      property="og:url"
+      content="https://edouard-lopez.github.io/libre-a-orx/"
+    />
+    <meta property="og:site_name" content="libre-a-orx" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta property="twitter:title" content="libre-a-orx" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "description": "LàO : Libre à Orx, logiciels et cultures libres",
+        "headline": "libre-a-orx",
+        "name": "libre-a-orx",
+        "url": "https://edouard-lopez.github.io/libre-a-orx/"
+      }
+    </script>
+    <!-- End Jekyll SEO tag -->
+    <base href="/libre-a-orx/" />
+    <link
+      rel="stylesheet"
+      href="https://edouard-lopez.github.io/libre-a-orx/assets/css/style.css?v=d4866832d54d35205eae45d6489fc5bdd8db2650"
+    />
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.png" />
+
+    <!-- end custom head snippets -->
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://unpkg.com/vue-cal"></script>
+    <link href="https://unpkg.com/vue-cal/dist/vuecal.css" rel="stylesheet" />
+    <link href="https://unpkg.com/wave-ui/dist/wave-ui.css" rel="stylesheet" />
+    <script src="https://unpkg.com/wave-ui"></script>
+
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container-xl px-3 my-5 markdown-body">
+      <div>
+        <h1>🎈 LàO : Libre à Orx</h1>
+        <ul>
+          <li>
+            <b>Où ?</b>
+            <a
+              href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&amp;layers=N"
+              >Place de l'Église, Orx, Landes</a
+            >
+          </li>
+          <li><b>Quand ?</b> Samedi 18 oct. 10h-17h</li>
+          <li>
+            <b>Mail :</b>
+            <a href="mailto:libre.a.orx.edgy933@aleeas.com"
+              >libre.a.orx.edgy933@aleeas.com</a
+            >
+          </li>
+          <li>
+            <b>Réseau Sociaux :</b>
+            <a href="https://piaille.fr/@edouard_lopez/">Mastodon</a>
+          </li>
+          <li><b>Tarif :</b> Libre</li>
+          <li><b>Programme :</b> <a href="#programme">Voir ci-dessous ⬇</a></li>
+          <li>
+            <b>Repas :</b> Auberge Espagnole (chacun apporte un plat à partager)
+          </li>
+          <li>
+            <b>💖 :</b> <a href="./code-de-conduite.md">Code de conduite</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="app">
+        <vue-cal
+          class="vuecal--green-theme"
+          selected-date="2025-10-18"
+          :events="events"
+          :time="true"
+          active-view="day"
+          :disable-views="['years', 'year', 'month', 'week']"
+          :hide-view-selector="true"
+          :hide-title-bar="true"
+          locale="fr"
+          :time-from="9 * 60"
+          :time-to="18 * 60"
+          :time-step="30"
+          :time-cell-height="timeCellHeight"
+          :editable-events="false"
+          :split-days="splitDays"
+          :min-cell-width="minCellWidth"
+          :min-split-width="minSplitWidth"
+          :on-event-click="onEventClick"
+          style="height: 600px"
+        >
+        </vue-cal>
+
+        <w-dialog v-model="showDialog" :width="600">
+          <w-card>
+            <h4 class="title2 mb3 mt0">
+              {{ selectedEvent.title }}
+              <div class="spacer"></div>
+              <span class="text-bold">
+                {{ selectedEvent.start && selectedEvent.start.formatTime() }} →
+                {{ selectedEvent.end && selectedEvent.end.formatTime() }}
+              </span>
+            </h4>
+
+            <div class="mt4">
+              <h5 class="title4 mb3 mt0 text-bold">Description</h5>
+              <div v-html="selectedEvent.contentFull" class="mb3"></div>
+            </div>
+
+            <div class="mt4">
+              <h5 class="title4 mb3 mt0 text-bold">Animer par</h5>
+              <p v-html="selectedEvent.orateurice"></p>
+            </div>
+          </w-card>
+        </w-dialog>
+      </div>
+
+      <script src="./events.js"></script>
+      <script src="./app.js"></script>
+      <script type="module"></script>
+
+      <div>
+        <div style="@media (max-width: 600px) {width: 100%}">
+          <img src="affiche-event.svg" alt="Affiche Libre à Orx" />
+        </div>
+      </div>
+
+      <h2 id="programme">Programme</h2>
+      <div></div>
+
+      <h2 id="remerciements">Remerciements</h2>
+      <div>
+        <p>L’organisation de cet événement est possible grâce :</p>
+
+        <ul>
+          <li>
+            au financement de l’<a
+              href="https://www.openstreetmap.fr/association/"
+              >association OpenStreetMap France</a
+            >
+            ;
+          </li>
+          <li>
+            au soutient de la
+            <a href="https://mairie-orx.fr/">mairie d’Orx</a> ;
+          </li>
+          <li>à l’investissement de nombreux bénévoles.</li>
+        </ul>
+      </div>
+      <div
+        class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray"
+      >
+        This site is open source.
+        <a
+          href="https://github.com/edouard-lopez/libre-a-orx/edit/main/docs/index.md"
+          >Improve this page</a
+        >.
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
+      integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      anchors.add();
+    </script>
+  </body>
+</html>
