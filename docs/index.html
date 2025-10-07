@@ -53,6 +53,32 @@
     <script src="https://unpkg.com/wave-ui"></script>
 
     <link href="./style.css" rel="stylesheet" />
+
+    <style>
+      /* Styles pour le filtrage */
+      .legend-item {
+        cursor: pointer;
+        transition: opacity 0.2s;
+        user-select: none;
+      }
+
+      .legend-item:hover {
+        opacity: 0.8;
+      }
+
+      .legend-item.active {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .event-card {
+        transition: all 0.3s ease;
+      }
+
+      .event-card.filtered-out {
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -142,13 +168,421 @@
       <script src="./app.js"></script>
       <script type="module"></script>
 
-      
       <h2 id="affiche my-5">Affiche</h2>
       <div>
         <div style="@media (max-width: 600px) {width: 100%}">
           <img src="affiche-event.jpeg" alt="Affiche Libre à Orx" />
         </div>
       </div>
+
+      <!-- Section Programme Statique -->
+      <section
+        class="programme-section"
+        aria-labelledby="programme-detail-title"
+      >
+        <h2 id="programme-detail-title">Programme détaillé</h2>
+
+        <nav
+          class="legend"
+          role="navigation"
+          aria-label="Légende des types d'événements"
+        >
+          <div class="legend-item active" data-filter="all">
+            <div
+              class="legend-color"
+              style="background: #999"
+              aria-hidden="true"
+            ></div>
+            <span>Tous</span>
+          </div>
+          <div class="legend-item" data-filter="welcome">
+            <div
+              class="legend-color"
+              style="background: var(--background-gray)"
+              aria-hidden="true"
+            ></div>
+            <span>Accueil</span>
+          </div>
+          <div class="legend-item" data-filter="talk">
+            <div
+              class="legend-color"
+              style="background: var(--event-type-talk-primary)"
+              aria-hidden="true"
+            ></div>
+            <span>Conférence</span>
+          </div>
+          <div class="legend-item" data-filter="hands-on">
+            <div
+              class="legend-color"
+              style="background: var(--event-type-hands-on-primary)"
+              aria-hidden="true"
+            ></div>
+            <span>Atelier pratique</span>
+          </div>
+          <div class="legend-item" data-filter="maker">
+            <div
+              class="legend-color"
+              style="background: var(--event-type-maker-primary)"
+              aria-hidden="true"
+            ></div>
+            <span>Maker</span>
+          </div>
+          <div class="legend-item" data-filter="outdoor">
+            <div
+              class="legend-color"
+              style="background: var(--event-type-outdoor-primary)"
+              aria-hidden="true"
+            ></div>
+            <span>Extérieur</span>
+          </div>
+          <div class="legend-item" data-filter="repas">
+            <div
+              class="legend-color"
+              style="background: var(--background-gray)"
+              aria-hidden="true"
+            ></div>
+            <span>Repas</span>
+          </div>
+        </nav>
+
+        <section id="pauses" class="w-app">
+          <h3 id="pauses-title">Pauses</h3>
+          <div class="w-flex wrap ma-2 text-center">
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" box welcome" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 09:30">09:30</time> -
+                  <time datetime="2025-10-18 10:00">10:00</time>
+                </div>
+                <h4 class="event-title">Accueil</h4>
+                <div class="event-description">
+                  Accueil des participant·es, café, thé, jus de fruits
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" box repas" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 12:30">12:30</time> -
+                  <time datetime="2025-10-18 14:00">14:00</time>
+                </div>
+                <h4 class="event-title">🍽️ Repas</h4>
+                <div class="event-description">
+                  Chacun apporte un plat, un gateau, une boisson et on
+                  partage!<br />L'auberge du Fronton peut aussi avoir des places
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" box rangement" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 17:00">17:00</time> -
+                  <time datetime="2025-10-18 18:30">18:30</time>
+                </div>
+                <h4 class="event-title">Rangement</h4>
+                <div class="event-description">🧹 🧼 🧹</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="fete1" class="w-app" aria-labelledby="fete1-title">
+          <h3 id="fete1-title">Salle des fêtes - Espace #1</h3>
+          <div class="w-flex wrap ma-2 text-center" role="list">
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" maker" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 10:00">10:00</time> -
+                  <time datetime="2025-10-18 12:30">12:30</time>
+                </div>
+                <h4 class="event-title">Impression 3D et découpe laser</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  Audrey Perrone -
+                  <a href="https://www.tramedesoi.fr/">Trame de soi</a>
+                </div>
+                <div class="event-description">
+                  Creation de porte clés personnalisés et autres objets en
+                  impression 3D et découpe laser.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" hands-on" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 10:00">10:00</time> -
+                  <time datetime="2025-10-18 12:30">12:30</time>
+                </div>
+                <h4 class="event-title">🐧 Install Party Linux</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  Sorgin Informatique Libre -
+                  <a href="https://sorgin.fr/">sorgin.fr</a>
+                </div>
+                <div class="event-description">
+                  <p>
+                    Installation de distributions GNU/Linux (Ubuntu, Linux Mint,
+                    Debian, Fedora...)
+                  </p>
+                  <p>
+                    Apportez votre ordinateur et
+                    <strong>sauvegardez vos données avant!</strong>
+                  </p>
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" maker" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 14:00">14:00</time> -
+                  <time datetime="2025-10-18 17:00">17:00</time>
+                </div>
+                <h4 class="event-title">Impression 3D et découpe laser</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  Audrey Perrone -
+                  <a href="https://www.tramedesoi.fr/">Trame de soi</a>
+                </div>
+                <div class="event-description">
+                  Creation de porte clés personnalisés et autres objets en
+                  impression 3D et découpe laser.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" talk" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 14:00">14:00</time> -
+                  <time datetime="2025-10-18 15:00">15:00</time>
+                </div>
+                <h4 class="event-title">Utiliser l'IA</h4>
+                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <div class="event-description">discussion, image, et code</div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" talk" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 15:00">15:00</time> -
+                  <time datetime="2025-10-18 16:30">16:30</time>
+                </div>
+                <h4 class="event-title">Docu-Blabla</h4>
+                <div class="event-description">
+                  🎬 Projection « LOL - Logiciel libre »<br /><small
+                    >Association Sorgin Informatique Libre</small
+                  >
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="fete2" class="w-app" aria-labelledby="fete2-title">
+          <h3 id="fete2-title">Salle des fêtes - Espace #2</h3>
+          <div class="w-flex wrap ma-2 text-center" role="list">
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" hands-on" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 10:00">10:00</time> -
+                  <time datetime="2025-10-18 12:30">12:30</time>
+                </div>
+                <h4 class="event-title">Initiation à OpenStreetMap</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  <a
+                    href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/"
+                    >Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a
+                  >
+                </div>
+                <div class="event-description">
+                  Présentation d'OpenStreetMap, le projet de carte libre et
+                  collaborative, et initiation à la contribution.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" maker" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 14:00">14:00</time> -
+                  <time datetime="2025-10-18 16:00">16:00</time>
+                </div>
+                <h4 class="event-title">
+                  Exploration de microcontrôleurs avec ESP32
+                </h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  Manu - Ingénieur C++/Java
+                </div>
+                <div class="event-description">
+                  Prendre en main un microcontrôleur ESP32 pour afficher des
+                  informations sur un écran OLED, lire des capteurs, et
+                  communiquer en WiFi. Utilisation de PlatformIO et Visual
+                  Studio Code.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" hands-on" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 15:00">15:00</time> -
+                  <time datetime="2025-10-18 16:00">16:00</time>
+                </div>
+                <h4 class="event-title">Inkscape</h4>
+                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <div class="event-description">
+                  Inkscape est un logiciel libre de dessin vectoriel. Il permet
+                  de créer des illustrations, des logos, des schémas, des bandes
+                  dessinées, etc. Nous verrons les bases du logiciel et
+                  réaliserons ensemble une illustration simple.
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="presby" class="w-app" aria-labelledby="presby-title">
+          <h3 id="presby-title">Salle du Presbytère</h3>
+          <div class="w-flex wrap ma-2 text-center" role="list">
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" hands-on" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 10:00">10:00</time> -
+                  <time datetime="2025-10-18 12:30">12:30</time>
+                </div>
+                <h4 class="event-title">Initiation Wikipedia</h4>
+                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <div class="event-description">
+                  Présentation de l'encyclopédie collaborative et première
+                  contribution à Wikipedia
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" talk" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 14:00">14:00</time> -
+                  <time datetime="2025-10-18 15:00">15:00</time>
+                </div>
+                <h4 class="event-title">
+                  Communs géonumériques et gouvernance territoriale
+                </h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  <a href="https://piaille.fr/@remi_labarthe">Rémi Labarthe</a>
+                </div>
+                <div class="event-description">
+                  Rémi Labarthe viendra nous parler de son sujet de thèse, qui
+                  porte sur les communs géonumériques et gouvernance
+                  territoriale. La rencontre entre le Département des Landes,
+                  OpenStreetMap et Panoramax.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" talk" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 16:00">16:00</time> -
+                  <time datetime="2025-10-18 16:30">16:30</time>
+                </div>
+                <h4 class="event-title">Le libre : du besoin au projet</h4>
+                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <div class="event-description">
+                  Le libre : du besoin au projet<br /><small
+                    >LinguaLibre, ProbeMeteo - Yug</small
+                  >
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" talk" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 16:30">16:30</time> -
+                  <time datetime="2025-10-18 17:00">17:00</time>
+                </div>
+                <h4 class="event-title">Libre et droits humains</h4>
+                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <div class="event-description">Libre et droits humains</div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="outdoor" class="w-app" aria-labelledby="outdoor-title">
+          <h3 id="outdoor-title">Activités extérieures</h3>
+          <div class="w-flex wrap ma-2 text-center" role="list">
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" outdoor" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 10:00">10:00</time> -
+                  <time datetime="2025-10-18 12:30">12:30</time>
+                </div>
+                <h4 class="event-title">Panoramax des sentiers communaux</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  <a
+                    href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/"
+                    >Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a
+                  >
+                </div>
+                <div class="event-description">
+                  Captation avec camera GoPro 360 des sentiers pédestres et
+                  versement sur la plateforme
+                  <a href="https://panoramax.openstreetmap.fr">panoramax</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" outdoor" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 14:00">14:00</time> -
+                  <time datetime="2025-10-18 15:30">15:30</time>
+                </div>
+                <h4 class="event-title">Cartopartie: les nichoirs</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  <i>Patchanka</i> & <i>Dum - Dum</i> -
+                  <a
+                    href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/"
+                    >Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a
+                  >
+                </div>
+                <div class="event-description">
+                  Cartopartie sur le thème des nichoirs, installés par
+                  lassociation « Les bons p'tits diables ». Première phase de
+                  repérage sur le terrain avec carte papier, la deuxième phase
+                  montrera comment rajouter les nichoirs sur OpenStreetMap.
+                </div>
+              </article>
+            </div>
+
+            <div class="fill-width xs12 md6 lg4 pa2">
+              <article class=" outdoor" role="listitem">
+                <div class="event-time">
+                  <time datetime="2025-10-18 16:00">16:00</time> -
+                  <time datetime="2025-10-18 17:00">17:00</time>
+                </div>
+                <h4 class="event-title">Archive d'un jardinier</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  <a href="https://github.com/edouard-lopez/">Édouard Lopez</a>
+                  &
+                  <a
+                    href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/"
+                    >Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a
+                  >
+                </div>
+                <div class="event-description">
+                  Captation d'une nouvelle visite virtuelle du jardin partagé à
+                  l'automne pour suivre son évolution dans le temps
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+      </section>
 
       <h2 id="remerciements">Remerciements</h2>
       <div>
@@ -187,5 +621,43 @@
     <script>
       anchors.add();
     </script>
+
+    <script src="events.js"></script>
+
+    <script>
+      // Système de filtrage des événements
+      document.addEventListener("DOMContentLoaded", function () {
+        const legendItems = document.querySelectorAll(".legend-item");
+        const eventCards = document.querySelectorAll(".event-card");
+
+        legendItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            // Mise à jour de l'état actif
+            legendItems.forEach((li) => li.classList.remove("active"));
+            this.classList.add("active");
+
+            // Filtrage des événements
+            eventCards.forEach((card) => {
+              if (filter === "all") {
+                card.classList.remove("filtered-out");
+              } else {
+                if (card.classList.contains(filter)) {
+                  card.classList.remove("filtered-out");
+                } else {
+                  card.classList.add("filtered-out");
+                }
+              }
+            });
+          });
+        });
+      });
+    </script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.1.0/anchor.min.js"
+      integrity="sha256-lZaRhKri35AyJSypXXs4o6OPFTbTmUoltBbDCbdzegg="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
