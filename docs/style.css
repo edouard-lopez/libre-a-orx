@@ -6,7 +6,7 @@
   --group4: rgba(255, 250, 196, 0.5);
   --group5: rgba(255, 232, 251, 0.5);
   --background-gray: rgba(242, 242, 242, 1);
-  --background-default: rgba(255, 255, 255, 1);
+  --background-default: var(--background-default);
 
   /* outdoor */
   --green-primary: rgba(157, 217, 63, 1);
@@ -76,7 +76,7 @@
 .vuecal__event.social {
   background-color: var(--event-type-social-primary);
   border: 1px solid var(--event-type-social-dark);
-  color: rgba(255, 255, 255, 1);
+  color: var(--background-default);
 }
 
 .vuecal__event.hands-on {
@@ -87,19 +87,19 @@
 .vuecal__event.talk {
   background-color: var(--event-type-talk-primary);
   border: 1px solid var(--event-type-talk-dark);
-  color: rgba(255, 255, 255, 1);
+  color: var(--background-default);
 }
 
 .vuecal__event.maker {
   background-color: var(--event-type-maker-primary);
   border: 1px solid var(--event-type-maker-dark);
-  color: rgba(255, 255, 255, 1);
+  color: var(--background-default);
 }
 
 .vuecal__event.outdoor {
   background-color: var(--event-type-outdoor-primary);
   border: 1px solid var(--event-type-outdoor-dark);
-  color: rgba(255, 255, 255, 1);
+  color: var(--background-default);
 }
 
 .vuecal__event.repas {
@@ -112,8 +112,8 @@
 .vuecal__event.rangement {
   background: repeating-linear-gradient(
     45deg,
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 1) 10px,
+    var(--background-default),
+    var(--background-default) 10px,
     rgba(242, 242, 242, 1) 10px,
     rgba(242, 242, 242, 1) 20px
   );
@@ -148,35 +148,75 @@
 .programme-section .w-app {
   min-height: auto;
 }
+.event-card {
+  --event-type-margin: 4px;
+}
+.event-card::after {
+  display: inline-block;
+  content: " ";
+  position: relative;
+  bottom: 3vh;
+  width: calc(100% - var(--event-type-margin) * 2);
+  height: 3vh;
+  background: linear-gradient(transparent, rgba(255, 255, 255, 0.75), #fff) left
+    repeat;
+  margin-left: var(--event-type-margin);
+}
+.event-card .event-card-content {
+  height: 12em;
+  overflow-y: auto;
+  position: relative;
+}
 .event-card-content {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--background-default);
+  box-shadow: 0 2px var(--event-type-margin) rgba(0, 0, 0, 0.1);
 }
 
-.event-card-content.welcome {
-  border-left: 4px solid var(--event-type-welcome-primary);
+.event-card .event-card-content .event-time {
+  position: absolute;
+  top: 0.5em;
 }
-.event-card-content.talk {
-  border-left: 4px solid var(--event-type-talk-primary);
-}
-.event-card-content.hands-on {
-  border-left: 4px solid var(--event-type-hands-on-primary);
-}
-.event-card-content.maker {
-  border-left: 4px solid var(--event-type-maker-primary);
-}
-.event-card-content.outdoor {
-  border-left: 4px solid var(--event-type-outdoor-primary);
-}
-.event-card-content.repas {
-  border-left: 4px solid var(--event-type-repas-primary);
+
+.event-card-content.welcome,
+.event-card-content.repas,
+.event-card-content.rangement {
   background: var(--background-gray);
 }
+.event-card:has(.event-card-content.repas)::after,
+.event-card:has(.event-card-content.welcome)::after,
+.event-card:has(.event-card-content.rangement)::after {
+  background: linear-gradient(
+      transparent,
+      hwb(from var(--background-gray) h w b / 0.75),
+      var(--background-gray)
+    )
+    left repeat;
+}
+.event-card-content.welcome {
+  border-left: var(--event-type-margin) solid var(--event-type-welcome-primary);
+}
+.event-card-content.repas {
+  border-left: var(--event-type-margin) solid var(--event-type-repas-primary);
+}
 .event-card-content.rangement {
-  border-left: 4px solid var(--event-type-rangement-primary);
+  border-left: var(--event-type-margin) solid
+    var(--event-type-rangement-primary);
+}
+
+.event-card-content.talk {
+  border-left: var(--event-type-margin) solid var(--event-type-talk-primary);
+}
+.event-card-content.hands-on {
+  border-left: var(--event-type-margin) solid var(--event-type-hands-on-primary);
+}
+.event-card-content.maker {
+  border-left: var(--event-type-margin) solid var(--event-type-maker-primary);
+}
+.event-card-content.outdoor {
+  border-left: var(--event-type-margin) solid var(--event-type-outdoor-primary);
 }
 
 .event-time {
