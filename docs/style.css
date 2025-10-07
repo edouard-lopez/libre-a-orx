@@ -148,7 +148,7 @@
 .programme-section .w-app {
   min-height: auto;
 }
-.event-card {
+.event-card-content {
   border: 1px solid #ddd;
   border-radius: 8px;
   padding: 15px;
@@ -156,26 +156,26 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.event-card.welcome {
+.event-card-content.welcome {
   border-left: 4px solid var(--event-type-welcome-primary);
 }
-.event-card.talk {
+.event-card-content.talk {
   border-left: 4px solid var(--event-type-talk-primary);
 }
-.event-card.hands-on {
+.event-card-content.hands-on {
   border-left: 4px solid var(--event-type-hands-on-primary);
 }
-.event-card.maker {
+.event-card-content.maker {
   border-left: 4px solid var(--event-type-maker-primary);
 }
-.event-card.outdoor {
+.event-card-content.outdoor {
   border-left: 4px solid var(--event-type-outdoor-primary);
 }
-.event-card.repas {
+.event-card-content.repas {
   border-left: 4px solid var(--event-type-repas-primary);
   background: var(--background-gray);
 }
-.event-card.rangement {
+.event-card-content.rangement {
   border-left: 4px solid var(--event-type-rangement-primary);
 }
 
