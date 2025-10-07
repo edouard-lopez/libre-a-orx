@@ -41,6 +41,9 @@
   --event-type-welcome-dark: var(--background-gray);
   --event-type-repas-dark: var(--background-gray);
   --event-type-rangement-dark: var(--background-gray);
+
+  --event-type-margin: 4px;
+  --event-margin: 8px;
 }
 
 /* You can easily set a different style for each split of your days. */
@@ -148,9 +151,6 @@
 .programme-section .w-app {
   min-height: auto;
 }
-.event-card {
-  --event-type-margin: 4px;
-}
 .event-card::after {
   display: inline-block;
   content: " ";
@@ -169,7 +169,7 @@
 }
 .event-card-content {
   border: 1px solid #ddd;
-  border-radius: 8px;
+  border-radius: var(--event-margin);
   padding: 15px;
   background: var(--background-default);
   box-shadow: 0 2px var(--event-type-margin) rgba(0, 0, 0, 0.1);
@@ -183,15 +183,15 @@
 .event-card-content.welcome,
 .event-card-content.repas,
 .event-card-content.rangement {
-  background: var(--background-gray);
+  background: var(--background-default);
 }
 .event-card:has(.event-card-content.repas)::after,
 .event-card:has(.event-card-content.welcome)::after,
 .event-card:has(.event-card-content.rangement)::after {
   background: linear-gradient(
       transparent,
-      hwb(from var(--background-gray) h w b / 0.75),
-      var(--background-gray)
+      hwb(from var(--background-default) h w b / 0.75),
+      var(--background-default)
     )
     left repeat;
 }
@@ -248,17 +248,18 @@
   margin: 20px 0;
   padding: 15px;
   background: var(--background-default);
-  border-radius: 8px;
+  border-radius: var(--event-margin);
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: var(--event-margin);
 }
 
 .legend-color {
   width: 20px;
   height: 20px;
-  border-radius: 4px;
+  border-radius: var(--event-type-margin);
+  margin-right: var(--event-type-margin);
 }

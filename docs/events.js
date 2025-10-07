@@ -25,7 +25,7 @@ const repas = ["fete1", "fete2", "presby", "outdoor"].map((split) => {
       "Chacun apporte un plat, un gateau, une boisson et on partage!<br>L'auberge du Fronton peut aussi avoir des places",
     class: "repas",
     split: split,
-    background: true
+    background: true,
   };
 });
 
@@ -40,16 +40,16 @@ const rangement = ["fete1", "fete2", "presby", "outdoor"].map((split) => {
 });
 
 const orateurices = {
-yug: `Yug`,
-edouard_lopez: `<a href="https://github.com/edouard-lopez/">Édouard Lopez</a>`,
-sorgin: `Sorgin Informatique Libre - <a href="https://sorgin.fr/">sorgin.fr</a>`,
-remi_labarthe: `<a href="https://piaille.fr/@remi_labarthe">Rémi Labarthe</a>`,
-groupe_osm_mapadour: `<a href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/">Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a>`,
-manu: `Manu - Ingénieur C++/Java`,
-audrey_perrone: `Audrey Perrone - <a href="https://www.tramedesoi.fr/">Trame de soi</a>`,
-patchanka: `<i>Patchanka</i>`,
-dum_dum: `<i>Dum - Dum</i>`,
-}
+  yug: `Yug`,
+  edouard_lopez: `<a href="https://github.com/edouard-lopez/">Édouard Lopez</a>`,
+  sorgin: `Sorgin Informatique Libre - <a href="https://sorgin.fr/">sorgin.fr</a>`,
+  remi_labarthe: `<a href="https://piaille.fr/@remi_labarthe">Rémi Labarthe</a>`,
+  groupe_osm_mapadour: `<a href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/">Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a>`,
+  manu: `Manu - Ingénieur C++/Java`,
+  audrey_perrone: `Audrey Perrone - <a href="https://www.tramedesoi.fr/">Trame de soi</a>`,
+  patchanka: `<i>Patchanka</i>`,
+  dum_dum: `<i>Dum - Dum</i>`,
+};
 
 window.events = [
   // Accueil
@@ -66,7 +66,8 @@ window.events = [
   {
     ...horaires("10:00", "12:30"),
     title: "🐧 Install Party Linux",
-    content: "Installation Linux sur votre machine<br>⚠ sauvegarder vos données",
+    content:
+      "Installation Linux sur votre machine<br>⚠ sauvegarder vos données",
     contentFull: `<p>Installation de distributions GNU/Linux (Ubuntu, Linux Mint, Debian, Fedora...)</p>
     <p>Apportez votre ordinateur et <strong>sauvegardez vos données avant!</strong></p>`,
     orateurice: `Sorgin Informatique Libre - <a href="https://sorgin.fr/">sorgin.fr</a>`,
@@ -129,7 +130,8 @@ window.events = [
   {
     ...horaires("10:00", "12:30"),
     title: "Initiation Wikipedia",
-    content: "Présentation de l'encyclopédie collaborative et première contribution à Wikipedia",
+    content:
+      "Présentation de l'encyclopédie collaborative et première contribution à Wikipedia",
     class: "hands-on",
     split: "presby",
     orateurice: orateurices.yug,
@@ -157,7 +159,8 @@ window.events = [
     title: "Exploration de microcontrôleurs avec ESP32",
     class: "maker",
     split: "fete2",
-    content: "Exploration de microcontrôleurs avec ESP32 avec PlatformIO et Visual Studio Code",
+    content:
+      "Exploration de microcontrôleurs avec ESP32 avec PlatformIO et Visual Studio Code",
     contentFull: `Prendre en main un microcontrôleur ESP32 pour afficher des informations
 sur un écran OLED, lire des capteurs, et communiquer en WiFi. Utilisation de
 PlatformIO et Visual Studio Code.`,
@@ -188,7 +191,8 @@ PlatformIO et Visual Studio Code.`,
     title: "Panoramax des sentiers communaux",
     class: "outdoor",
     split: "outdoor",
-    content: "Valorisation des sentiers communaux par la création d'une visite virtuelle",
+    content:
+      "Valorisation des sentiers communaux par la création d'une visite virtuelle",
     contentFull: `Captation avec camera GoPro 360 des sentiers pédestres et versement
 sur la plateforme <a href="panoramax.openstreetmap.fr">panoramax</a>`,
     orateurice: orateurices.groupe_osm_mapadour,
@@ -211,5 +215,5 @@ avec carte papier, la deuxième phase montrera comment rajouter les nichoirs sur
     content: "Visite virtuelle du jardin partagé à l'automne",
     contentFull: `Captation d'une nouvelle visite virtuelle du jardin partagé à l'automne pour suivre son évolution dans le temps`,
     orateurice: `${orateurices.edouard_lopez} & ${orateurices.groupe_osm_mapadour}`,
-  }
+  },
 ];
