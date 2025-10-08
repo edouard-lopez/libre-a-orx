@@ -146,7 +146,7 @@ window.events = [
     orateurice: orateurices.yug,
   },
   {
-    ...horaires("14:00", "15:00"),
+    ...horaires("14:00", "14:30"),
     title: "Communs géonumériques et gouvernance territoriale",
     class: "talk",
     split: "presby",
