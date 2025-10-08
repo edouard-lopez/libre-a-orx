@@ -108,7 +108,16 @@ window.events = [
     class: "hands-on",
     split: "fete2",
   },
-  {
+{
+    ...horaires("14:30", "15:00"),
+    title: "Autodéfense numérique",
+    content: "Se protéger de la publicité et autres nuisances numériques",
+    contentFull: `Présentation d'outils (Android, Navigateur, etc.) et de bonnes pratiques pour se protéger de la publicité, du pistage et autres nuisances numériques.`,
+    class: "talk",
+    split: "fete2",
+    orateurice: orateurices.edouard_lopez,
+  },
+    {
     ...horaires("15:00", "16:00"),
     title: "Inkscape",
     content: "Initiation au dessin vectoriel",
