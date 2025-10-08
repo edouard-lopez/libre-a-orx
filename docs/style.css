@@ -6,7 +6,7 @@
   --group4: rgba(255, 250, 196, 0.5);
   --group5: rgba(255, 232, 251, 0.5);
   --background-gray: rgba(242, 242, 242, 1);
-  --background-default: var(--background-default);
+  --background-default: white;
   --target-color: rgba(255, 250, 196, 0.5);
 
   /* outdoor */
