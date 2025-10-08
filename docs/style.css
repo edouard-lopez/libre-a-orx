@@ -7,6 +7,7 @@
   --group5: rgba(255, 232, 251, 0.5);
   --background-gray: rgba(242, 242, 242, 1);
   --background-default: var(--background-default);
+  --target-color: rgba(255, 250, 196, 0.5);
 
   /* outdoor */
   --green-primary: rgba(157, 217, 63, 1);
@@ -218,6 +219,15 @@
 .event-card-content.outdoor {
   border-left: var(--event-type-margin) solid var(--event-type-outdoor-primary);
 }
+
+article:has(> :target),
+div:has(> article > :target)::after {
+  background: var(--target-color);
+}
+article.event-card-content:has(> :target){
+border-left-width: calc(var(--event-type-margin) * 2);
+}
+
 
 .event-time {
   font-weight: bold;
