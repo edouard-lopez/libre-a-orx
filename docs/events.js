@@ -49,6 +49,7 @@ const orateurices = {
   audrey_perrone: `Audrey Perrone - <a href="https://www.tramedesoi.fr/">Trame de soi</a>`,
   patchanka: `<i>Patchanka</i>`,
   dum_dum: `<i>Dum - Dum</i>`,
+  alban: 'Alban'
 };
 
 window.events = [
@@ -87,15 +88,16 @@ window.events = [
     content: "discussion, image, et code",
     class: "talk",
     split: "fete1",
-    orateurice: orateurices.yug,
+    orateurice: orateurices.alban,
   },
   {
     ...horaires("15:00", "16:30"),
     title: "Docu-Blabla",
     content:
-      "🎬 Projection « LOL - Logiciel libre »<br><small>Association Sorgin Informatique Libre</small>",
+      "🎬 Projection « LOL - Logiciel libre »",
     class: "talk",
     split: "fete1",
+    orateurices: orateurices.sorgin
   },
 
   // Salle des fêtes Espace #2
