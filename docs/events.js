@@ -83,7 +83,7 @@ window.events = [
   //   },
   {
     ...horaires("14:00", "15:00"),
-    title: "Utiliser l'IA",
+    title: "Appréhender l'IA",
     content: "discussion, image, et code",
     class: "talk",
     split: "fete1",
