@@ -195,15 +195,15 @@
 .event-card-content.welcome,
 .event-card-content.repas,
 .event-card-content.rangement {
-  background: var(--background-default);
+  background: var(--background-gray);
 }
 .event-card:has(.event-card-content.repas)::after,
 .event-card:has(.event-card-content.welcome)::after,
 .event-card:has(.event-card-content.rangement)::after {
   background: linear-gradient(
       transparent,
-      hwb(from var(--background-default) h w b / 0.75),
-      var(--background-default)
+      hwb(from var(--background-gray) h w b / 0.75),
+      var(--background-gray)
     )
     left repeat;
 }
