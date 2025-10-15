@@ -57,7 +57,7 @@
   </head>
 
   <body>
-    <div id='LàO' class="container-xl px-3 my-5 markdown-body">
+    <div id="LàO" class="container-xl px-3 my-5 markdown-body">
       <div>
         <h1>🎈 LàO : Libre à Orx</h1>
         <p class="lead">
@@ -106,10 +106,10 @@
       </div>
 
       <h2 id="programme">Programme</h2>
-      
+
       <!-- Légende non-interactive avant le calendrier -->
       <event-legend></event-legend>
-      
+
       <div id="app">
         <vue-cal
           class="vuecal--green-theme"
@@ -239,7 +239,7 @@
                   <a href="https://www.tramedesoi.fr/">Trame de soi</a>
                 </div>
                 <div class="event-description">
-                  Creation de porte clés personnalisés et autres objets en
+                  Création de porte clés personnalisés et autres objets en
                   impression 3D et découpe laser.
                 </div>
               </article>
@@ -295,8 +295,8 @@
                   <time datetime="2025-10-18 14:00">14:00</time> -
                   <time datetime="2025-10-18 15:00">15:00</time>
                 </div>
-                <h4 class="event-title mt3 mb1">Utiliser l'IA</h4>
-                <div class="event-speaker" aria-label="Intervenant">Yug</div>
+                <h4 class="event-title mt3 mb1">Appréhender l'IA</h4>
+                <div class="event-speaker" aria-label="Intervenant">Alban</div>
                 <div class="event-description">discussion, image, et code</div>
               </article>
             </div>
@@ -308,10 +308,12 @@
                   <time datetime="2025-10-18 16:30">16:30</time>
                 </div>
                 <h4 class="event-title mt3 mb1">Docu-Blabla</h4>
+                <div class="event-speaker" aria-label="Intervenant">
+                  Sorgin Informatique Libre -
+                  <a href="https://sorgin.fr/">sorgin.fr</a>
+                </div>
                 <div class="event-description">
-                  🎬 Projection « LOL - Logiciel libre »<br /><small
-                    >Association Sorgin Informatique Libre</small
-                  >
+                  🎬 Projection « LOL - Logiciel libre »
                 </div>
               </article>
             </div>
@@ -449,9 +451,7 @@
                 </h4>
                 <div class="event-speaker" aria-label="Intervenant">Yug</div>
                 <div class="event-description">
-                  Le libre : du besoin au projet<br /><small
-                    >LinguaLibre, ProbeMeteo - Yug</small
-                  >
+                  Le cas de <a href="https://lingualibre.org/">LinguaLibre</a> et ProbeMeteo
                 </div>
               </article>
             </div>
@@ -491,7 +491,7 @@
                 <div class="event-description">
                   Captation avec camera GoPro 360 des sentiers pédestres et
                   versement sur la plateforme
-                  <a href="https://panoramax.openstreetmap.fr">panoramax</a>
+                  <a href="https://panoramax.openstreetmap.fr">Panoramax</a>
                 </div>
               </article>
             </div>
@@ -512,7 +512,7 @@
                 </div>
                 <div class="event-description">
                   Cartopartie sur le thème des nichoirs, installés par
-                  lassociation « Les bons p'tits diables ». Première phase de
+                  l'association « Les bons p'tits diables ». Première phase de
                   repérage sur le terrain avec carte papier, la deuxième phase
                   montrera comment rajouter les nichoirs sur OpenStreetMap.
                 </div>
@@ -604,16 +604,16 @@
         const eventCards = document.querySelectorAll(
           ".event-card-content[role='listitem']"
         );
-        
+
         // Écoute des événements de filtrage depuis le web component
-        document.addEventListener('filter-change', function(e) {
+        document.addEventListener("filter-change", function (e) {
           const filter = e.detail.filter;
-          
+
           // Filtrage des événements
           eventCards.forEach((card) => {
             const parent = card.closest(".event-card");
-            
-            console.log('Card classes:', card.className); // Debug
+
+            console.log("Card classes:", card.className); // Debug
 
             if (filter === "all") {
               card.classList.remove("filtered-out");
