@@ -311,6 +311,7 @@ article.event-card-content:has(> :target) {
   #LàO #affiche,
   #LàO #remerciements,
   #LàO .footer,
+  .anchorjs-link,
   script {
     display: none !important;
   }
