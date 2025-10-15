@@ -21,7 +21,7 @@ class EventLegend extends HTMLElement {
           padding: 15px;
           border: thin solid var(--background-gray);
           border-radius: 8px;
-          width: 50vw;
+          width: fit-content;
         }
         
         .legend-item {
@@ -55,13 +55,24 @@ class EventLegend extends HTMLElement {
           height: 20px;
           border-radius: 4px;
         }
+
+        @media print {
+          .legend {
+            margin: 0;
+            border: none;
+            padding: 0;
+        }
+        div[data-filter="all"], .label {
+            display: none;
+        }
+    }
       </style>
       
       <nav class="legend" role="navigation" aria-label="Légende des types d'événements">
         ${
           interactive
             ? `
-          <b>Filtrer :</b>
+          <b class="label">Filtrer :</b>
         <div class="legend-item active" data-filter="all">
           <div class="legend-color" style="background: #999;" aria-hidden="true"></div>
           <span>Tous</span>

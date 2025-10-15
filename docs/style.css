@@ -312,6 +312,7 @@ article.event-card-content:has(> :target) {
   #LàO #remerciements,
   #LàO .footer,
   .anchorjs-link,
+  .event-card::after,
   script {
     display: none !important;
   }
@@ -324,6 +325,10 @@ article.event-card-content:has(> :target) {
   #LàO .programme-section {
     display: block !important;
   }
+  #LàO .programme-section {
+    margin: 0;
+    padding: 0;
+  }
 
   /* Optimiser l'affichage pour l'impression */
   #fete2 {
@@ -333,19 +338,27 @@ article.event-card-content:has(> :target) {
   /* Éviter les coupures de page dans les cartes */
   .event-card {
     break-inside: avoid;
+    /* margin-bottom: 2em; */
   }
-
   /* Supprimer les ombres et effets pour l'impression */
-  .event-card-content {
+  .event-card .event-card-content {
     box-shadow: none;
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
+    height: 18em;
   }
 
+  .markdown-body h1,
+  .markdown-body h2,
+  .markdown-body h3,
+  .markdown-body h4,
+  .markdown-body h5,
+  .markdown-body h6 {
+    margin-bottom: 10px;
+  }
   /* Masquer les éléments interactifs non nécessaires */
   event-legend[interactive] {
-    display: none !important;
+    /* display: none !important; */
   }
-
   /* Ajuster la légende pour l'impression */
   event-legend:not([interactive]) {
     break-after: avoid;
