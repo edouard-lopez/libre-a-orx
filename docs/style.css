@@ -47,6 +47,17 @@
   --event-margin: 8px;
 }
 
+#LàO {
+  & .lead {
+    max-width: 80vw;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 1em;
+  }
+  & .lead:last-of-type {
+    margin-bottom: 2em;
+  }
+}
 /* You can easily set a different style for each split of your days. */
 .vuecal__cell-split.track-fete1 {
   background-color: var(--background-default); /*rgba(221, 238, 255, 0.5); */
@@ -164,7 +175,7 @@
   margin-left: var(--event-type-margin);
 }
 .event-card .event-card-content {
-  height: 12em;
+  height: 15em;
   overflow-y: auto;
   position: relative;
 }
@@ -224,10 +235,9 @@ article:has(> :target),
 div:has(> article > :target)::after {
   background: var(--target-color);
 }
-article.event-card-content:has(> :target){
-border-left-width: calc(var(--event-type-margin) * 2);
+article.event-card-content:has(> :target) {
+  border-left-width: calc(var(--event-type-margin) * 2);
 }
-
 
 .event-time {
   font-weight: bold;
