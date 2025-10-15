@@ -283,3 +283,70 @@ article.event-card-content:has(> :target) {
   border-radius: var(--event-type-margin);
   margin-right: var(--event-type-margin);
 }
+
+/* Styles pour le filtrage */
+.event-card.filtered-out,
+.event-card-content.filtered-out {
+  display: none !important;
+}
+
+/* Styles pour l'impression */
+/* #app should use full height and printing should be in landscape */
+@media print {
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+  #app .vuecal {
+    height: auto !important;
+  }
+  /* Masquer tout sauf le programme */
+  body > div:not(#LàO),
+  #LàO > *:not(#app):not(.programme-section),
+  #LàO h1,
+  #LàO .lead,
+  #LàO > ul,
+  #LàO h2:not(#programme),
+  #LàO h2:not(#programme-detail-title),
+  #LàO #affiche,
+  #LàO #remerciements,
+  #LàO .footer,
+  script {
+    display: none !important;
+  }
+
+  #LàO {
+    max-width: 100vw;
+  }
+  /* Afficher le programme */
+  #LàO #app,
+  #LàO .programme-section {
+    display: block !important;
+  }
+
+  /* Optimiser l'affichage pour l'impression */
+  #fete2 {
+    break-before: always;
+  }
+
+  /* Éviter les coupures de page dans les cartes */
+  .event-card {
+    break-inside: avoid;
+  }
+
+  /* Supprimer les ombres et effets pour l'impression */
+  .event-card-content {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+
+  /* Masquer les éléments interactifs non nécessaires */
+  event-legend[interactive] {
+    display: none !important;
+  }
+
+  /* Ajuster la légende pour l'impression */
+  event-legend:not([interactive]) {
+    break-after: avoid;
+  }
+}
