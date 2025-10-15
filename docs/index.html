@@ -54,36 +54,6 @@
     <script src="https://unpkg.com/wave-ui"></script>
 
     <link href="./style.css" rel="stylesheet" />
-
-    <style>
-      /* Styles pour le filtrage */
-      .legend-item {
-        cursor: pointer;
-        transition: opacity 0.2s;
-        user-select: none;
-      }
-
-      .legend-item:hover {
-        opacity: 0.8;
-      }
-
-      .legend-item.active {
-        font-weight: bold;
-        text-decoration: underline;
-      }
-
-      .event-card {
-        transition: all 0.3s ease;
-      }
-
-      .event-card.filtered-out {
-        display: none;
-      }
-
-      .fill-width.filtered-out {
-        display: none;
-      }
-    </style>
   </head>
 
   <body>
@@ -136,6 +106,10 @@
       </div>
 
       <h2 id="programme">Programme</h2>
+      
+      <!-- Légende non-interactive avant le calendrier -->
+      <event-legend></event-legend>
+      
       <div id="app">
         <vue-cal
           class="vuecal--green-theme"
@@ -202,68 +176,8 @@
       >
         <h2 id="programme-detail-title">Programme détaillé</h2>
 
-        <nav
-          class="legend"
-          role="navigation"
-          aria-label="Légende des types d'événements"
-        >
-          <div class="legend-item active" data-filter="all">
-            <div
-              class="legend-color"
-              style="background: #999"
-              aria-hidden="true"
-            ></div>
-            <span>Tous</span>
-          </div>
-          <div class="legend-item" data-filter="welcome">
-            <div
-              class="legend-color"
-              style="background: var(--background-gray)"
-              aria-hidden="true"
-            ></div>
-            <span>Accueil</span>
-          </div>
-          <div class="legend-item" data-filter="talk">
-            <div
-              class="legend-color"
-              style="background: var(--event-type-talk-primary)"
-              aria-hidden="true"
-            ></div>
-            <span>Conférence</span>
-          </div>
-          <div class="legend-item" data-filter="hands-on">
-            <div
-              class="legend-color"
-              style="background: var(--event-type-hands-on-primary)"
-              aria-hidden="true"
-            ></div>
-            <span>Atelier pratique</span>
-          </div>
-          <div class="legend-item" data-filter="maker">
-            <div
-              class="legend-color"
-              style="background: var(--event-type-maker-primary)"
-              aria-hidden="true"
-            ></div>
-            <span>Maker</span>
-          </div>
-          <div class="legend-item" data-filter="outdoor">
-            <div
-              class="legend-color"
-              style="background: var(--event-type-outdoor-primary)"
-              aria-hidden="true"
-            ></div>
-            <span>Extérieur</span>
-          </div>
-          <div class="legend-item" data-filter="repas">
-            <div
-              class="legend-color"
-              style="background: var(--background-gray)"
-              aria-hidden="true"
-            ></div>
-            <span>Repas</span>
-          </div>
-        </nav>
+        <!-- Légende interactive avant le programme détaillé -->
+        <event-legend interactive></event-legend>
 
         <section id="pauses" class="w-app">
           <h3 id="pauses-title">Pauses</h3>
@@ -682,40 +596,37 @@
     </script>
 
     <script src="events.js"></script>
+    <script src="components/event-legend.js"></script>
 
     <script>
-      // Système de filtrage des événements
+      // Système de filtrage des événements mis à jour pour le web component
       document.addEventListener("DOMContentLoaded", function () {
-        const legendItems = document.querySelectorAll(".legend-item");
         const eventCards = document.querySelectorAll(
-          "article[role='listitem']"
+          ".event-card-content[role='listitem']"
         );
+        
+        // Écoute des événements de filtrage depuis le web component
+        document.addEventListener('filter-change', function(e) {
+          const filter = e.detail.filter;
+          
+          // Filtrage des événements
+          eventCards.forEach((card) => {
+            const parent = card.closest(".event-card");
+            
+            console.log('Card classes:', card.className); // Debug
 
-        legendItems.forEach((item) => {
-          item.addEventListener("click", function () {
-            const filter = this.getAttribute("data-filter");
-
-            // Mise à jour de l'état actif
-            legendItems.forEach((li) => li.classList.remove("active"));
-            this.classList.add("active");
-
-            // Filtrage des événements
-            eventCards.forEach((card) => {
-              const parent = card.closest(".fill-width");
-
-              if (filter === "all") {
+            if (filter === "all") {
+              card.classList.remove("filtered-out");
+              if (parent) parent.classList.remove("filtered-out");
+            } else {
+              if (card.classList.contains(filter)) {
                 card.classList.remove("filtered-out");
                 if (parent) parent.classList.remove("filtered-out");
               } else {
-                if (card.classList.contains(filter)) {
-                  card.classList.remove("filtered-out");
-                  if (parent) parent.classList.remove("filtered-out");
-                } else {
-                  card.classList.add("filtered-out");
-                  if (parent) parent.classList.add("filtered-out");
-                }
+                card.classList.add("filtered-out");
+                if (parent) parent.classList.add("filtered-out");
               }
-            });
+            }
           });
         });
       });
