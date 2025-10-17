@@ -58,124 +58,92 @@
 
   <body>
     <div id="LàO" class="container-xl px-3 my-5 markdown-body">
+      <div class="qr-code">
+        <figure class="qr-code ml3 mb3">
+          <img
+            src="assets/code-wifi.svg"
+            alt="QR code wifi"
+          />
+          <figcaption class="caption text-center">
+            <dl>
+              <dt>WiFi</dt>
+              <dd><code>Salle des fêtes</code></dd>
+              <dt>Mot de passe</dt>
+              <dd><code>Sdf-ORX40</code></dd>
+            </dl>
+          </figcaption>
+      </div>
       <div>
         <h1>🎈 LàO : Libre à Orx</h1>
-        <p class="lead">
-          L'association
-          <a href="https://piaille.fr/@les_semeurs_d_orx">des Semeurs d'Orx</a>,
-          avec le soutien de la
-          <a href="https://mairie-orx.fr/">mairie d'Orx</a> et de l'association
-          <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>, ont
-          le plaisir de vous inviter à l'événement «
-          <i>🎈 LàO : Libre à Orx</i> », le samedi 18 oct.
-        </p>
-        <p class="lead">
-          Une journée pour explorer et discuter de
-          <strong>logiciels et cultures libres</strong>, des communs numériques
-          (Wikipédia, OpenStreetMap), participer à des ateliers, des conférences
-          et des échanges !
-        </p>
-        <ul>
-          <li>
-            <b>Où ?</b>
-            <a
-              href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&amp;layers=N"
-              >Place de l'Église, Orx, Landes</a
-            >
-          </li>
-          <li><b>Quand ?</b> Samedi 18 oct. 10h-17h</li>
-          <li>
-            <b>Mail :</b>
-            <a href="mailto:libre.a.orx.edgy933@aleeas.com"
-              >libre.a.orx.edgy933@aleeas.com</a
-            >
-          </li>
-          <li>
-            <b>Réseau Sociaux :</b>
-            <a href="https://piaille.fr/@edouard_lopez/">Mastodon</a>
-          </li>
-          <li><b>Tarif :</b> Libre</li>
-          <li><b>Programme :</b> <a href="#programme">Voir ci-dessous ⬇</a></li>
-          <li>
-            <b>Repas :</b> Auberge Espagnole (chacun apporte un plat à partager)
-          </li>
-          <li>
-            <b>💖 :</b> <a href="./code-de-conduite.md">Code de conduite</a>
-          </li>
-        </ul>
       </div>
+      <p class="top lead">
+        Une journée pour explorer et discuter de logiciels et cultures libres, des communs numériques (Wikipédia, OpenStreetMap), participer à des ateliers, des conférences et des échanges !
+      </p>
+
 
       <h2 id="programme">Programme</h2>
+      <section>
+        <!-- Légende non-interactive avant le calendrier -->
+        <event-legend></event-legend>
 
-      <!-- Légende non-interactive avant le calendrier -->
-      <event-legend></event-legend>
+        <div id="app">
+          <vue-cal
+            class="vuecal--green-theme"
+            selected-date="2025-10-18"
+            :events="events"
+            :time="true"
+            active-view="day"
+            :disable-views="['years', 'year', 'month', 'week']"
+            :hide-view-selector="true"
+            :hide-title-bar="true"
+            locale="fr"
+            :time-from="9 * 60"
+            :time-to="18 * 60"
+            :time-step="30"
+            :time-cell-height="timeCellHeight"
+            :editable-events="false"
+            :split-days="splitDays"
+            :min-cell-width="minCellWidth"
+            :min-split-width="minSplitWidth"
+            :on-event-click="onEventClick"
+            style="height: 600px"
+          >
+          </vue-cal>
 
-      <div id="app">
-        <vue-cal
-          class="vuecal--green-theme"
-          selected-date="2025-10-18"
-          :events="events"
-          :time="true"
-          active-view="day"
-          :disable-views="['years', 'year', 'month', 'week']"
-          :hide-view-selector="true"
-          :hide-title-bar="true"
-          locale="fr"
-          :time-from="9 * 60"
-          :time-to="18 * 60"
-          :time-step="30"
-          :time-cell-height="timeCellHeight"
-          :editable-events="false"
-          :split-days="splitDays"
-          :min-cell-width="minCellWidth"
-          :min-split-width="minSplitWidth"
-          :on-event-click="onEventClick"
-          style="height: 600px"
-        >
-        </vue-cal>
+          <w-dialog v-model="showDialog" :width="600">
+            <w-card>
+              <h4 class="title2 mb3 mt0">
+                {{ selectedEvent.title }}
+                <div class="spacer"></div>
+                <span class="text-bold">
+                  {{ selectedEvent.start && selectedEvent.start.formatTime() }}
+                  → {{ selectedEvent.end && selectedEvent.end.formatTime() }}
+                </span>
+              </h4>
 
-        <w-dialog v-model="showDialog" :width="600">
-          <w-card>
-            <h4 class="title2 mb3 mt0">
-              {{ selectedEvent.title }}
-              <div class="spacer"></div>
-              <span class="text-bold">
-                {{ selectedEvent.start && selectedEvent.start.formatTime() }} →
-                {{ selectedEvent.end && selectedEvent.end.formatTime() }}
-              </span>
-            </h4>
+              <div class="mt4">
+                <h5 class="title4 mb3 mt0 text-bold">Description</h5>
+                <div v-html="selectedEvent.contentFull" class="mb3"></div>
+              </div>
 
-            <div class="mt4">
-              <h5 class="title4 mb3 mt0 text-bold">Description</h5>
-              <div v-html="selectedEvent.contentFull" class="mb3"></div>
-            </div>
-
-            <div class="mt4">
-              <h5 class="title4 mb3 mt0 text-bold">Animer par</h5>
-              <p v-html="selectedEvent.orateurice"></p>
-            </div>
-          </w-card>
-        </w-dialog>
-      </div>
-
-      <script src="./events.js"></script>
-      <script src="./app.js"></script>
-      <script type="module"></script>
-
-      <h2 id="affiche my-5">Affiche</h2>
-      <div>
-        <div style="@media (max-width: 600px) {width: 100%}">
-          <img src="assets/affiche-event.jpeg" alt="Affiche Libre à Orx" />
+              <div class="mt4">
+                <h5 class="title4 mb3 mt0 text-bold">Animer par</h5>
+                <p v-html="selectedEvent.orateurice"></p>
+              </div>
+            </w-card>
+          </w-dialog>
         </div>
-      </div>
 
-      <!-- Section Programme Statique -->
+        <script src="./events.js"></script>
+        <script src="./app.js"></script>
+        <script type="module"></script>
+      </section>
+
+      <h2 id="programme-detail-title">Programme détaillé</h2>
       <section
         class="programme-section"
         aria-labelledby="programme-detail-title"
       >
-        <h2 id="programme-detail-title">Programme détaillé</h2>
-
         <!-- Légende interactive avant le programme détaillé -->
         <event-legend interactive></event-legend>
 
@@ -253,7 +221,9 @@
                 </div>
                 <h4 class="event-title mt3 mb1">🐧 Install Party Linux</h4>
                 <div class="event-speaker" aria-label="Intervenant">
-                  <a href="https://sorgin-informatique-libre.org/">Sorgin Informatique Libre</a>
+                  <a href="https://sorgin-informatique-libre.org/"
+                    >Sorgin Informatique Libre</a
+                  >
                 </div>
                 <div class="event-description">
                   <p>
@@ -308,7 +278,9 @@
                 </div>
                 <h4 class="event-title mt3 mb1">Docu-Blabla</h4>
                 <div class="event-speaker" aria-label="Intervenant">
-                  <a href="https://sorgin-informatique-libre.org/">Sorgin Informatique Libre</a>
+                  <a href="https://sorgin-informatique-libre.org/"
+                    >Sorgin Informatique Libre</a
+                  >
                 </div>
                 <div class="event-description">
                   🎬 Projection « LOL - Logiciel libre »
@@ -449,7 +421,9 @@
                 </h4>
                 <div class="event-speaker" aria-label="Intervenant">Yug</div>
                 <div class="event-description">
-                  Le cas de <a href="https://lingualibre.org/">LinguaLibre</a> et ProbeMeteo
+                  Le cas de
+                  <a href="https://lingualibre.org/">LinguaLibre</a> et
+                  ProbeMeteo
                 </div>
               </article>
             </div>
@@ -541,6 +515,60 @@
           </div>
         </section>
       </section>
+
+      <h2>Présentation</h2>
+      <section>
+        <p class="lead">
+          L'association
+          <a href="https://piaille.fr/@les_semeurs_d_orx">des Semeurs d'Orx</a>,
+          avec le soutien de la
+          <a href="https://mairie-orx.fr/">mairie d'Orx</a> et de l'association
+          <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>, ont
+          le plaisir de vous inviter à l'événement «
+          <i>🎈 LàO : Libre à Orx</i> », le samedi 18 oct.
+        </p>
+        <p class="lead">
+          Une journée pour explorer et discuter de
+          <strong>logiciels et cultures libres</strong>, des communs numériques
+          (Wikipédia, OpenStreetMap), participer à des ateliers, des conférences
+          et des échanges !
+        </p>
+        <ul>
+          <li>
+            <b>Où ?</b>
+            <a
+              href="https://www.openstreetmap.org/relation/75976#map=14/43.60468/-1.36822&amp;layers=N"
+              >Place de l'Église, Orx, Landes</a
+            >
+          </li>
+          <li><b>Quand ?</b> Samedi 18 oct. 10h-17h</li>
+          <li>
+            <b>Mail :</b>
+            <a href="mailto:libre.a.orx.edgy933@aleeas.com"
+              >libre.a.orx.edgy933@aleeas.com</a
+            >
+          </li>
+          <li>
+            <b>Réseau Sociaux :</b>
+            <a href="https://piaille.fr/@edouard_lopez/">Mastodon</a>
+          </li>
+          <li><b>Tarif :</b> Libre</li>
+          <li><b>Programme :</b> <a href="#programme">Voir ci-dessous ⬇</a></li>
+          <li>
+            <b>Repas :</b> Auberge Espagnole (chacun apporte un plat à partager)
+          </li>
+          <li>
+            <b>💖 :</b> <a href="./code-de-conduite.md">Code de conduite</a>
+          </li>
+        </ul>
+      </section>
+
+      <h2 id="affiche my-5">Affiche</h2>
+      <div>
+        <div style="@media (max-width: 600px) {width: 100%}">
+          <img src="assets/affiche-event.jpeg" alt="Affiche Libre à Orx" />
+        </div>
+      </div>
 
       <h2 id="remerciements">Remerciements</h2>
       <div>

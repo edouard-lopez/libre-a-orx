@@ -47,7 +47,44 @@
   --event-margin: 8px;
 }
 
+.qr-code {
+  float: right;
+  width: 15em;
+  height: 15em;
+  top: 0;
+  margin-right: 5em;
+  margin-bottom: 6em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* remove text wrapping */
+  white-space: nowrap;
+  dl {
+    display: grid;
+    grid-template-columns: max-content auto;
+    margin-top: .5em;
+  }
+  dl dt {
+    margin-top: 0;
+    width: fit-content;
+    grid-column-start: 1;
+  }
+  dl dd {
+    padding: 0;
+    grid-column-start: 2;
+    text-align: left;
+    margin-bottom: 0;
+  }
+  dl code {
+    margin-left: .5em;
+  }
+}
+
 #LàO {
+  & .lead.top {
+    max-width: 60vw;
+    margin-left: 2em;
+  }
   & .lead {
     max-width: 80vw;
     text-align: left;
