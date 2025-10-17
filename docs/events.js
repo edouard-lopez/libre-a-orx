@@ -42,7 +42,7 @@ const rangement = ["fete1", "fete2", "presby", "outdoor"].map((split) => {
 const orateurices = {
   yug: `Yug`,
   edouard_lopez: `<a href="https://github.com/edouard-lopez/">Édouard Lopez</a>`,
-  sorgin: `Sorgin Informatique Libre - <a href="https://sorgin.fr/">sorgin.fr</a>`,
+  sorgin: `Sorgin Informatique Libre - <a href="https://sorgin-informatique-libre.org/">Sorgin Informatique Libre</a>`,
   remi_labarthe: `<a href="https://piaille.fr/@remi_labarthe">Rémi Labarthe</a>`,
   groupe_osm_mapadour: `<a href="https://forum.openstreetmap.fr/c/groupes-locaux/mapadour/">Groupe <abbr title="OpenStreetMap">OSM</abbr> Mapadour</a>`,
   manu: `Manu - Ingénieur C++/Java`,
@@ -71,7 +71,7 @@ window.events = [
       "Installation Linux sur votre machine<br>⚠ sauvegarder vos données",
     contentFull: `<p>Installation de distributions GNU/Linux (Ubuntu, Linux Mint, Debian, Fedora...)</p>
     <p>Apportez votre ordinateur et <strong>sauvegardez vos données avant!</strong></p>`,
-    orateurice: `Sorgin Informatique Libre - <a href="https://sorgin.fr/">sorgin.fr</a>`,
+    orateurice: orateurices.sorgin,
     class: "hands-on",
     split: "fete1",
   },
